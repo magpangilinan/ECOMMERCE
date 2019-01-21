@@ -1,0 +1,64 @@
+<!-- <div class="col-25">
+    <div class="container-cart">
+      <h4>Cart <span class="price-cart" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <div class="product-cart">
+        <img class="img-cart" src="./img/product01.jpg" alt="">
+        <p class="prodName-cart"><a href="#">Product name goes here</a> <span class="price-cart">$15</span></p>
+      </div>
+      <p>Total <span class="price-cart" style="color:black"><b>$30</b></span></p>
+    </div>
+  </div>
+</div> -->
+<div id="container-cart">
+    <div class="main">
+
+        <h1 class="cart-header">Shopping cart</h1>
+
+        <section class="shopping-cart">
+        <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
+            <li class="_grid shopping-cart--list-item">
+                <div class="_column product-image">
+                    <img class="product-image--img" src="./img/product01.jpg" alt="Item image" />
+                </div>
+                <div class="_column product-info">
+                <p class="product-name">Product name</p>
+                <p class="product-desc">Product description</p>
+                <div class="price product-single-price">$23.00</div>
+                </div>
+                <div class="_column product-modifiers" data-product-price="price">
+                <div class="_grid">
+                    <button class="_btn _column product-subtract">&minus;</button>
+                    <div class="_column product-qty">0</div>
+                    <button class="_btn _column product-plus">&plus;</button>
+                </div>
+                <button class="_btn entypo-trash product-remove">Remove</button>
+                <div class="price product-total-price">$0.00</div>
+                </div>
+            </li>
+        </ol>
+
+        <footer class="_grid cart-totals">
+            <div class="_column subtotal" id="subtotalCtr">
+            <div class="cart-totals-key">Subtotal</div>
+            <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column shipping" id="shippingCtr">
+            <div class="cart-totals-key">Shipping</div>
+            <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column taxes" id="taxesCtr">
+            <div class="cart-totals-key">Taxes (6%)</div>
+            <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column total" id="totalCtr">
+            <div class="cart-totals-key">Total</div>
+            <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column checkout">
+            <a href="/checkout-bill" class="_btn checkout-btn entypo-forward">Checkout</a>
+            </div>
+        </footer>
+
+        </section>
+    </div>                  
+</div>
