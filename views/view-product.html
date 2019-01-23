@@ -1,0 +1,50 @@
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            {{#product}}
+            <!--  Product Details -->
+            <div class="product product-details clearfix">
+                <div class="col-md-6">
+                    <div id="product-main-view">
+                        <div class="product-view">
+                            <img src="{{{image}}}" alt="">
+                        </div>
+                    </div>
+                <div class="col-md-6">
+                    <div class="product-body">
+                        <h2 class="product-name">{{name}}</h2>
+                        <h3 class="product-price">${{price}}</h3>
+                        <div>
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o empty"></i>
+                            </div>
+                        </div>
+                        <p><strong>Availability:</strong> In Stock</p>
+                        <p><strong>Brand:</strong> E-SHOP</p>
+                        <div class="desc">{{description}}</div>
+                        <div class="product-btns">
+                            <div class="qty-input">
+                                <span class="text-uppercase">QTY: </span>
+                                <input class="input" type="number">
+                            </div>
+                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Product Details -->
+            {{/product}}
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->

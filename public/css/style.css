@@ -41,7 +41,7 @@ Table OF Contents
 ------ Aside
 ------ Store
 8 > PRODUCT DETAILS PAGE
------- Product view
+------ Product viewproduct-btns
 ------ Product details
 ------ Product tab
 9 > CHECKOUT PAGE
@@ -904,6 +904,7 @@ textarea.input {
   margin-bottom: 15px;
 }
 
+
 .product.product-single .product-thumb>img {
   width: 100%;
 }
@@ -921,6 +922,12 @@ textarea.input {
   z-index: 0;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
+}
+
+.product img{
+  border: 1px solid black;
+  width: 150px;
+  height: 230px;
 }
 
 .product.product-single:hover .product-thumb:after {
@@ -992,6 +999,7 @@ textarea.input {
   opacity: 1;
   visibility: visible;
 }
+
 
 /*-- hot product --*/
 
@@ -1279,27 +1287,30 @@ textarea.input {
   opacity: 1;
 }
 
-#product-view {
+.product-view {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-#product-view .product-view.slick-slide {
+.product-view .product-view.slick-slide {
   opacity: 0.2;
 }
 
-#product-view .product-view.slick-slide.slick-current {
+.product-view img
+
+.product-view .product-view.slick-slide.slick-current {
   opacity: 1;
   -webkit-box-shadow: 0px 0px 0px 2px #F8694A inset;
   box-shadow: 0px 0px 0px 2px #F8694A inset;
 }
 
-#product-view .product-view {
+.product-view .product-view {
   padding: 7.5px;
 }
 
 .product-view>img {
   width: 100%;
+  height: 400px;
 }
 
 /*----------------------------*\
@@ -1373,6 +1384,14 @@ textarea.input {
 
 .product.product-details .qty-input {
   display: inline-block;
+}
+
+.qty-input{
+  margin-bottom: 10px;
+}
+
+.desc{
+  width: 100%;
 }
 
 .product.product-details .qty-input .input {
