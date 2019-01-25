@@ -46,7 +46,7 @@
 				<div class="pull-left">
 					<!-- Logo -->
 					<div class="header-logo">
-						<a class="logo" href="/home">
+						<a class="logo" href="/">
 							<img src="./img/logo.png" alt="">
 						</a>
 					</div>
@@ -80,9 +80,17 @@
 						<!-- Cart -->
 						<li class="header-cart dropdown default-dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-								<div class="header-btns-icon">
+								<div class="header-btns-icon" onmouseover="myF()">
 									<i class="fa fa-shopping-cart"></i>
-									<span class="qty">3</span>
+									<!--popup cart number-->
+									<script>
+										function myF(){
+											var x = document.getElementById("shopcart").rows.length;
+											document.getElementById('qty').innerHTML = x;
+										}
+									</script>
+									<!---->
+									<span class="qty"id="qty"></span>
 								</div>
 								<strong class="text-uppercase">My Cart:</strong>
 								<br>
@@ -92,25 +100,26 @@
 								<div id="shopping-cart">
 									<div class="shopping-cart-list">
 										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
+												<table id="shopcart">
+														
+											{{#carts}}
+											
+											
+												<tr>
+												<td><img src="{{image}}" alt="" style="
+													width: 72px;
+													height: 72px;
+												"></td>
+												<td><h3 class="product-price">${{price}} <span class="qty">x{{quantity}}</span></h3></td>
+												<td><h2 class="product-name"><a href="/{{_id}}">{{name}}</a></h2></td>
+												</tr>
+											
+											
+											{{/carts}}
+										</table>
+										
 										</div>
-										<div class="product product-widget">
-											<div class="product-thumb">
-												<img src="./img/thumb-product01.jpg" alt="">
-											</div>
-											<div class="product-body">
-												<h3 class="product-price">$32.50 <span class="qty">x3</span></h3>
-												<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-											</div>
-											<button class="cancel-btn"><i class="fa fa-trash"></i></button>
-										</div>
+										
 									</div>
 									<div class="shopping-cart-btns">
 										<a class="main-btn" href="/view-cart">View Cart</a>
@@ -266,7 +275,6 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
-
 </body>
 
 </html>

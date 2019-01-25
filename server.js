@@ -4,7 +4,6 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 // const http = require('http').Server(express);
 var bodyParser = require('body-parser');
-// const socketio = require('socket.io')(http);
 
 const db_name = "ecommerce_project";
 
@@ -45,12 +44,20 @@ app.get("/", (req, res) => {
 
 //shop page 
 app.get("/shop", (req, res) => {
-    res.render("shop.html");
+    mongoDb.collection('items').find().toArray(function(err, data) {
+        res.render("shop.html", { product: data });
+    });
+
+    mongoDb.collection('ecommerce_cart').find().toArray(function(err, data) {
+        res.render("shop.html", { carts: data });
+    });
 });
 
 //loginSeller
 app.get("/loginSeller", (req, res) => {
-    res.render("loginSeller.html");
+    mongoDb.collection('items').find().toArray(function(err, data) {
+        res.render("loginSeller.html", { product: data });
+    });
 });
 
 //sell product
@@ -75,10 +82,32 @@ app.get("/login", (req, res) => {
      res.render("login.html");
  })
 
+  //viewing of cart
+app.get("/view-cart", (req, res) => {
+    mongoDb.collection('ecommerce_cart').find().toArray(function(err, data) {
+        res.render("viewCart.html", { carts: data });
+        console.log(data);
+    });
+});
+
+
+
 //createAccount
 app.get("/createAccount", (req, res) => {
     res.render("createAccount.html");
 })
+
+ //create cart
+ app.post("/addToCart", (req, res) => {
+    mongoDb.collection("ecommerce_cart").save(req.body, (err, result) => {
+        if (err)
+        {
+            console.log(err);
+        }else{
+            console.log("Saved to cart");
+        }
+    });
+});
 
 //add product to db 
 app.post("/sellproductpost", (req, res) => {
@@ -111,26 +140,19 @@ app.get("/:id", (req, res) => {
     });
 })
 
-//create cart
-app.post("/addToCart", (req, res) => {
-    mongoDb.collection("ecommerce_cart").save(req.body, (err, result) => {
-        if (err)
+//removing item from cart
+app.post("/view-cart/:id/remove", (req, res) => {
+    id = req.params.id
+    mongoDb.collection("ecommerce_cart").removeOne(
         {
-            console.log(err);
-        }else{
-            console.log("Saved to cart");
-            res.redirect('home.html');
-        }
-    });
+            _id: new ObjectID(id)
+        }, 
+        (err, result) => {
+        if (err) return console.log(err)
+            console.log("removed");
+            res.redirect('/view-cart')
+      })
 });
-
-//viewing of cart
-app.get("/view-cart", (req, res) => {
-    mongoDb.collection('ecommerce_cart').find().toArray(function(err, data) {
-        res.render("home.html", { carts: data });
-    });
-});
-
 
 app.listen(3000);
 
