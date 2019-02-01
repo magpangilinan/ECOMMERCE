@@ -90,7 +90,12 @@ app.get("/view-cart", (req, res) => {
     });
 });
 
-
+//checkedOut Ok
+app.post("/checkedoutAll", (req, res) => {
+    mongoDb.collection('carts').drop(function(err, data) {
+        res.redirect('/');
+    });
+})
 
 //createAccount
 app.get("/createAccount", (req, res) => {
